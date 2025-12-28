@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Robo-Dopamine</title>
+    <meta name="description" content="Robo-Dopamine">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="./assets/images/dpm_logo_crop.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+
+<body onload="SubmissionVidep();">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-start" style="flex-grow: 1; justify-content: center">
+                <a class="navbar-item" href="https://github.com/tanhuajie">
+                    <span class="icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"> More Research </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="https://github.com/FlagOpen/RoboBrain/" target="_blank">
+                            RoboBrain-1.0 (CVPR 2025)
+                        </a>
+                        <a class="navbar-item" href="https://tanhuajie.github.io/ReasonRFT/" target="_blank">
+                            Reason-RFT (NeurIPS 2025)
+                        </a>
+                        <a class="navbar-item" href="https://superrobobrain.github.io/" target="_blank">
+                            RoboBrain-2.0 (Technical Report 2025)
+                        </a>
+                        <a class="navbar-item" href="https://flagopen.github.io/RoboOS/" target="_blank">
+                            RoboOS-NeXT (ArXiv 2025)
+                        </a> 
+                        <a class="navbar-item" href="https://robo-dopamine.github.io/" target="_blank">
+                            Robo-Dopamine (ArXiv 2025)
+                        </a> 
+                        <a class="navbar-item" href="https://action-sketcher.github.io/" target="_blank">
+                            Action-Sketcher (ArXiv 2025)
+                        </a>         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <img src="assets/images/dpm_logo.png" alt="LOGO" width="200">
+                        <h1 class="title is-2 publication-title" style="display: flex; align-items: center; padding-left: 40px;">
+                            <!-- <img src="assets/images/dpm_logo.png" alt="Logo"
+                                 style="height: 3rem; margin-left: -80px; margin-right: 0px; flex-shrink: 0;"> -->
+                            <span style="display: inline-block;">
+                              Robo-Dopamine: General Process Reward Modeling for High-Precision Robotic Manipulation
+                            </span>
+                        </h1>
+                        
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a target="_blank" href="https://scholar.google.com/citations?user=9B5knsQAAAAJ">Huajie Tan</a><sup>1,2*&dagger;</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://cscsx.github.io/">Sixiang Chen</a><sup>1,2*</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://scholar.google.com/citations?hl=zh-CN&user=spP6e5UAAAAJ">Yijie Xu</a><sup>2,3*</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://zixiao-bios.github.io/">Zixiao Wang</a><sup>1,2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://yuheng2000.github.io/">Yuheng Ji</a><sup>2,4</sup>,
+                            </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a target="_blank" href="https://chicheng123.github.io/">Cheng Chi</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://robo-dopamine.github.io/">Yaoxu Lyu</a><sup>1,2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://robo-dopamine.github.io/">Zhongxia Zhao</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://github.com/alexchan313/">Xiansheng Chen</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://robo-dopamine.github.io/">Peterson Co</a><sup>2</sup>,
+                            </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a target="_blank" href="https://robo-dopamine.github.io/">Shaoxuan Xie</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://scholar.google.com/citations?user=FLkv_vIAAAAJ">Guocai Yao</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://scholar.google.com/citations?&user=2xR6P5AAAAAJ">Pengwei Wang</a><sup>2&dagger;</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="http://www.wangzhongyuan.com/">Zhongyuan Wang</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://pku-hmi-lab.github.io/HMI-Web/leader.html">Shanghang Zhang</a><sup>1,2&nbsp;<span style="font-family: serif;">✉</span></sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block" style="font-size: 0.9em;"><sup>1</sup>Peking University; </span>
+                            <span class="author-block" style="font-size: 0.9em;"><sup>2</sup>Beijing Academy of Artificial Intelligence (BAAI); </span>
+                            <span class="author-block" style="font-size: 0.9em;"><sup>3</sup>University of Sydney; </span>
+                            <span class="author-block" style="font-size: 0.9em;"><sup>4</sup>Institute of Automation; </span>
+                        
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block" style="font-size: 0.9em;"><sup>*</sup>Equal contribution <sup>&dagger;</sup>Project leaders <sup>&nbsp;<span style="font-family: serif;">✉</span></sup>Corresponding author</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <!-- ArXiv link -->
+                            <span class="link-block">
+                                <a target="_blank" href="https://arxiv.org/abs/xxx" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file"></i></span>
+                                    <span>Paper (Coming Soon)</span>
+                                </a>
+                            </span>
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                                <a target="_blank" href="https://github.com/FlagOpen/Robo-Dopamine" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code (Coming Soon)</span>
+                                </a>
+                            </span>
+                            <!-- Dataset Link. -->
+                            <span class="link-block">
+                                <a target="_blank" href="https://huggingface.co/datasets/FlagOpen/xxx-Dataset" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-database"></i></span>
+                                    <span>Dataset (Coming Soon)</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                            <a target="_blank" href="https://huggingface.co/datasets/FlagOpen/xxx-Checkpoints" class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon"><i class="fas fa-check"></i></span>
+                                <span>Checkpoints (Coming Soon)</span>
+                            </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-full">
+                        <div class="content">
+                            <div class="columns is-centered has-text-centered">
+                                <span class="text-image-container title is-3">
+                                    <img src="assets/images/video_logo.png" alt="highlight" width="50">
+                                    <span>Project Video</span>
+                                </span>
+                                <p>&nbsp;</p>
+                            </div>
+                            <!-- Teasor Video -->
+                            <div class="columns is-centered has-text-centered">
+                                <h2 class="title is-3"></h2>
+                                <video id="put_grapes" autoplay controls unmuted loop playsinline preload="metadata" width="100%">
+                                    <source src="./assets/videos/dpm_video_teasor.mp4"
+                                            type="video/mp4">
+                                </video>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract -->
+            <div class="columns is-centered has-text-centered">
+                <!-- <div class="column is-four-fifths"> -->
+                    <div class="content has-text-justified">
+                        <div class="column has-text-centered">
+                            <h2 class="title is-3">Abstract</h2>
+                        </div>
+                        <p>
+                            The primary obstacle for applying reinforcement learning (RL) to real-world robotics is the design of effective reward functions. 
+                            While recently learning-based Process Reward Models (PRMs) are a promising direction, they are often hindered by two fundamental limitations: 
+                            their reward models lack step-aware understanding and rely on single-view perception, leading to unreliable assessments of fine-grained manipulation progress; 
+                            and their reward shaping procedures are theoretically unsound, often inducing a semantic trap that misguides policy optimization. 
+                            To address these, we introduce <strong>Dopamine-Reward</strong>, a novel reward modeling method for learning a general-purpose, step-aware process reward model from multi-view inputs. 
+                            At its core is our <strong>General Reward Model (GRM)</strong>, trained on a vast 3,400+ hour dataset, which leverages Step-wise Reward Discretization for 
+                            structural understanding and Multi-Perspective Reward Fusion to overcome perceptual limitations. Building upon Dopamine-Reward, we propose <strong>Dopamine-RL</strong>, 
+                            a robust policy learning framework that employs a theoretically-sound Policy-Invariant Reward Shaping method, which enables the agent to leverage dense rewards for efficient self-improvement 
+                            without altering the optimal policy, thereby fundamentally avoiding the semantic trap. 
+                            Extensive experiments across diverse simulated and real-world tasks validate our approach. GRM achieves state-of-the-art accuracy in reward assessment, 
+                            and Dopamine-RL built on GRM significantly improves policy learning efficiency. For instance, after GRM is adapted to a new task in a one-shot manner from a single expert trajectory, 
+                            the resulting reward model enables Dopamine-RL to improve the policy <strong>from near-zero to 95% success with only 150 online rollouts</strong>, 
+                            while retaining strong generalization across tasks. 
+                        </p>
+                    </div>
+                <!-- </div> -->
+            </div>
+            <!-- ppt -->
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item">
+                    <img src="assets/images/ppt1.png" alt="ppt1" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt2.png" alt="ppt2" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt3.png" alt="ppt3" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt4.png" alt="ppt4" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt5.png" alt="ppt5" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt6.png" alt="ppt6" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt7.png" alt="ppt7" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt8.png" alt="ppt8" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt9.png" alt="ppt9" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt10.png" alt="ppt10" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt11.png" alt="ppt11" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt12.png" alt="ppt12" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt13.png" alt="ppt13" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt14.png" alt="ppt14" loading="lazy"/>
+                </div>
+                <div class="item">
+                    <img src="assets/images/ppt15.png" alt="ppt15" loading="lazy"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+              <div class="content has-text-centered">
+                <h2 class="title is-3">Overview of Robo-Dopamine</h2>
+                <figure>
+                    <img src="assets/images/dpm_teasor.png" alt="teaser" width="95%">
+                    <figcaption>
+                        <strong>Robo-Dopamine</strong> integrates large-scale reward modeling with a robust policy learning algorithm. 
+                        <strong>(Left)</strong> We construct a <strong>General Reward Model (GRM)</strong> trained on a large and diverse 35M-sample dataset spanning real-world, simulation, 
+                        and human-centric videos with our <strong>Dopamine-Reward</strong>, a step-aware fine-grained reward modeling method. This GRM learns to predict fine-grained, relative progress 
+                        between states to accurately assess task progression. 
+                        <strong>(Bottom Right)</strong> The pre-trained GRM is adapted to new tasks and provides dense reward signals to our <strong>Dopamine-RL</strong> framework. 
+                        By using a theoretically-sound Policy-Invariant Reward Shaping method, <strong>Dopamine-RL</strong> efficiently guides the policy during online interactions without misaligning the task objective. 
+                        <strong>(Top Right)</strong> Our integrated approach establishes a new state-of-the-art in reward accuracy (radar chart) 
+                        and demonstrates high training efficiency, significantly boosting policy success rates in both simulation and the real world (bar chart).
+                    </figcaption>
+                </figure>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+              <div class="content has-text-centered">
+                <h2 class="title is-3">Method of Robo-Dopamine</h2>
+                <figure>
+                    <img src="assets/images/dpm_method.png" alt="teaser" width="95%">
+                    <figcaption>
+                        <strong>Robo-Dopamine</strong> is composed of two core components: <strong>(a) Dopamine-Reward Modeling Method</strong> and <strong>(b) Dopamine-RL Training Framework</strong>. 
+                        <strong>(a)</strong> At the heart of our reward modeling is to build the General Reward Model (GRM), a vision-language model that is prompted with a task description and conditioned on multi-view images of initial, 
+                        goal, "BEFORE," and "AFTER" states to predict a relative progress or regress hop. To ensure a stable and accurate signal, we employ <strong>Multi-Perspective Progress Fusion</strong>, which combines incremental, 
+                        forward-anchored, and backward-anchored predictions into a final fused reward. 
+                        <strong>(b)</strong> The Dopamine-RL framework first adapts the pre-trained GRM to a novel task using a single demonstration, i.e., <strong>One-Shot GRM Adaptation</strong>. 
+                        Subsequently, it uses a theoretically-sound <strong>Policy-Invariant Reward Shaping</strong> method to convert the GRM's dense output into a reward signal that accelerates learning without altering the optimal policy. 
+                        This approach is universally compatible with a wide range of RL algorithms.
+                    </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+              <div class="content has-text-centered">
+                <h2 class="title is-3">Overview of GRM Training Data</h2>
+                <figure>
+                    <img src="assets/images/dpm_data.png" alt="teaser" width="95%">
+                    <figcaption>
+                        <strong>(Left)</strong> The hierarchical composition of our 35M-sample training corpus. 
+                        The dataset is derived from episodes spanning Real-World Robotics, Simulation, and Human-Centric domains, and is further expanded via multi-view augmentation. 
+                        <strong>(Right)</strong> The long-tail distribution of task categories sorted by episode count (log scale). 
+                        The dataset covers a broad spectrum of manipulation skills, ranging from atomic primitives to complex, multi-stage horizons.
+                    </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+                <div class="content has-text-centered">
+
+                    <span class="text-image-container title is-3">
+                        <img src="assets/images/highlight_logo.png" alt="highlight" width="50">
+                        <span>GRM Evaluation & Results</span>
+                    </span>
+                    <h2 class="title is-4">Evaluation on Different Data Sources</h2>
+                    <!-- item1 -->
+                    <div class="item item-video1 four-videos">
+                        <div class="video-row">
+                            <video id="video1_1" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_1.mp4" type="video/mp4">
+                            </video>
+                            <p>Fold the Pants (AgiLex).</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video1_2" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_2.mp4" type="video/mp4">
+                            </video>
+                            <p>Clean the Table (AgiLex).</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video2_1" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_3.mp4" type="video/mp4">
+                            </video>
+                            <p>Fill the Mug (RoboCasa).</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video2_2" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_4.mp4" type="video/mp4">
+                            </video>
+                            <p>Close the Drawer (RoboCasa).</p>
+                        </div>
+                    </div>
+                    <!-- item2 -->
+                    <div class="item item-video3 four-videos">
+                        <div class="video-row">
+                            <video id="video3_1" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_5.mp4" type="video/mp4">
+                            </video>
+                            <p>Place Bowl on the Plate (LIBERO).</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video3_2" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_6.mp4" type="video/mp4">
+                            </video>
+                            <p>Open the Drawer (LIBERO).</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video4_1" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_7.mp4" type="video/mp4">
+                            </video>
+                            <p>Stack the Blocks (Flanka).</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video4_2" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/grm_demo_8.mp4" type="video/mp4">
+                            </video>
+                            <p>Stack the Blocks (Human).</p>
+                        </div>
+                    </div>
+
+                    <h2 class="title is-4">Evaluation on Different Sampling Intervals</h2>
+                    <div class="item item-video1 four-videos">
+                        <div class="video-row">
+                            <video id="video1_1" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/interval_100.mp4" type="video/mp4">
+                            </video>
+                            <p>Sampling Intervals = 100</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video1_2" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/interval_50.mp4" type="video/mp4">
+                            </video>
+                            <p>Sampling Intervals = 50</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video1_3" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/interval_25.mp4" type="video/mp4">
+                            </video>
+                            <p>Sampling Intervals = 25</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video1_4" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/interval_10.mp4" type="video/mp4">
+                            </video>
+                            <p>Sampling Intervals = 10</p>
+                        </div>
+                    </div>
+
+                    <h2 class="title is-4">Analysis on Trajectory VOC and Status Detection</h2>
+                    <figure>
+                        <img src="assets/images/dpm_result.png" alt="teaser" width="95%">
+                        <figcaption>
+                        <strong>(Left) We evaluate reward models under three temporal sampling strategies: Sparse (S), Medium (M), and Dense (D).</strong> 
+                        Our GRM variants (Ours-3B and Ours-8B) consistently outperform prior work. Notably, 
+                        the Ours-8B (Multi-View) model sets a new state-of-the-art across all benchmarks and sampling densities, showcasing exceptional robustness and progress understanding.
+                        <strong>(Right) Task Completion Classification Accuracy (as successes out of 60).</strong> 
+                            Our GRM more accurately classifies the final outcomes of robot rollouts compared to both specialized reward models and large generalist models.
+                        </figcaption>                    
+                    </figure>
+
+                    <h2 class="title is-4">A Challenging Real-world Rollout (Insert Square Block)</h2>
+                    <figure>
+                        <img src="assets/images/funny_ood.png" alt="teaser" width="95%">
+                        <figcaption>
+                            We plot the reference reward from human annotations, the VLAC baseline, and our GRM along the same trajectory. Our GRM tracks the reference signal more faithfully, 
+                            sharply penalizing <strong>incorrect insertions, low positions, and misalignments</strong>, and only assigning high reward near successful task completion.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+   <section>
+      <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+                <div class="content has-text-centered">
+                    <span class="text-image-container title is-3">
+                        <img src="assets/images/video_logo.png" alt="highlight" width="50">
+                        <span>Real-World RL DEMOs</span>
+                    </span>
+
+                    <div class="item item-video1 three-videos">
+                        <div class="video-row">
+                            <video id="video1_1" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/real_demo_1.mp4" type="video/mp4">
+                            </video>
+                            <p>Insert the Square Block.</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video1_2" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/real_demo_2.mp4" type="video/mp4">
+                            </video>
+                            <p>Trigger the Circuit.</p>
+                        </div>
+
+                        <div class="video-row">
+                            <video id="video1_3" autoplay controls muted loop preload="metadata">
+                                <source src="assets/videos/real_demo_3.mp4" type="video/mp4">
+                            </video>
+                            <p>Cap the Pen.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="title is-4">How to Human-in-Loop (Hardware Setup)</h2>
+                    <figure>
+                        <img src="assets/images/real_settings.png" alt="teaser" width="95%">
+                        <figcaption>
+                            Our multi-view hardware platform with the Pika teleoperation system and calibrated ZED cameras, 
+                            providing synchronized wrist and third-person observations for GRM training and policy learning.
+                        </figcaption>
+                    </figure>
+                        
+                    <h2 class="title is-4">Analysis on Generalization and Efficiency</h2>
+                    <figure>
+                        <img src="assets/images/rl_result.png" alt="teaser" width="95%">
+                        <figcaption>
+                            <strong>(Left) The table compares success counts (out of 20 trials) for Behavioral Cloning (BC) and Ours.</strong> 
+                            The final row, Avg. Relative Drop (∆), quantifies the average relative success rate drop from ID performance when tested on OOD settings.
+                            <strong>(Right) Dopamine-RL achieves significantly higher performance with fewer human demonstrations.</strong> 
+                            Sample efficiency is measured by episodes needed to reach 80% of the final success rate (lower is better).
+                        </figcaption>                    
+                    </figure>
+                    
+                    <h2 class="title is-4">Robustness to Artificial Disturbance</h2>
+                    <figure>
+                        <img src="assets/images/analysis.png" alt="teaser" width="95%">
+                        <figcaption>
+                            We visualize a rollout of the converged policy (Insert the Square Block, success rate > 95%) under human interference. 
+                            Each sub-figure shows the third-person view, the ego-centric view, and the real-time GRM inference (Top: Hop, Bottom: Progress). 
+                            <strong>(a) Artificial Disturbance Position:</strong> A human hand intervenes and shifts the target board while the robot attempts to approach. 
+                            <strong>(b) Fall Into Misalignment:</strong> The robot misses the new position. Note that the GRM Progress curve drops significantly (indicated by the red dot in the bottom inset), reflecting the failure state. 
+                            <strong>(c) Misalignment Recovery:</strong> The policy reacts to the visual feedback and the drop in reward, adjusting the end-effector position.  
+                            <strong>(d) Move to the top:</strong> The robot realigns directly above the target slot. 
+                            <strong>(e) Align with the Slot:</strong> Precise fine-tuning before insertion. 
+                            <strong>(f) Successful Insertion:</strong> The task is completed, with the progress estimation reaching its peak.
+                        </figcaption>                    
+                    </figure>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="columns is-centered">
+        <div class="container">
+          <div class="content has-text-centered">
+            <div class="box m-5" >
+                <h2 class="title">Citation</h2>
+                <p class="is-size-5">
+                    If you find our work helpful, feel free to cite it:
+                </p>
+                <pre><code>
+@article{tan2025robodopamine,
+    title={Robo-Dopamine: General Process Reward Modeling for High-Precision Robotic Manipulation}, 
+    author={Tan, Huajie and Chen, Sixiang and Xu, Yijie and Wang, Zixiao and Ji, Yuheng and Chi, Cheng and Lyu, Yaoxu and Zhao, Zhongxia and Chen, Xiansheng and Co, Peterson and Xie, Shaoxuan and Yao, Guocai and Wang, Pengwei and Wang, Zhongyuan and Zhang, Shanghang},
+    journal={TODO},
+    year={2025}
+}
+                </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    
+
+</html>
