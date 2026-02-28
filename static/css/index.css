@@ -97,10 +97,6 @@ body {
    text-shadow: #7eba00 0.5px 0.5px 0.5px;
 }
 
-.conference-authors a {
-   color: hsl(0, 0%, 16%) !important;
-}
-
 .publication-authors a:hover {
     text-decoration: underline;
 }
