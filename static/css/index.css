@@ -13,6 +13,14 @@ body {
     margin-bottom: 5px;
 }
 
+.conference-authors {
+}
+
+.conference-authors a {
+   color:  #0063ba !important;
+   text-shadow: #0063ba 0.5px 0.5px 0.5px;
+}
+
 .dnerf {
   font-variant: small-caps;
 }
